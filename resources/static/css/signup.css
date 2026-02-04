@@ -1,0 +1,72 @@
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f7f6;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.wholepage {
+    width: 350px;
+    padding: 40px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.loginbox {
+    width: 100%;
+}
+
+#login {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* 입력창 세로 배치 및 간격 유지 */
+.login_input {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; 
+    margin-bottom: 25px;
+}
+
+.login_input input {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+.login_input input:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+/* 버튼 디자인 */
+.submit_button input {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    background-color: #28a745; /* 가입 버튼은 초록색 계열로 차별화 */
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit_button input:hover {
+    background-color: #218838;
+}

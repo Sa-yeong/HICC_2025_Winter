@@ -1,0 +1,107 @@
+/* 화면 전체 레이아웃 설정 */
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0; 
+}
+
+.wholepage {
+    width: 35%;
+    height: 100vh;
+    padding: 1%;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    /* justify-content를 flex-start로 변경하여 위에서부터 쌓이게 함 */
+    justify-content: flex-start; 
+    align-items: center;
+    gap: 20px;
+}
+
+.loginbox{
+    width: 80%;
+    height: 40vh;
+    border: 1px solid #000000;
+    margin-top: 25%;
+}
+
+#login{
+    text-align: center;
+}
+
+/* 기존 body와 .wholepage 스타일은 유지하거나 아래와 같이 세밀하게 조정 */
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f7f6; /* 연한 회색 배경 */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.wholepage {
+    width: 350px; /* 고정 너비로 변경하여 안정감 부여 */
+    padding: 40px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.loginbox {
+    width: 100%;
+}
+
+#login {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* 입력창 세로 배치 */
+.login_input {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* 입력창 사이 간격 */
+    margin-bottom: 20px;
+}
+
+.login_input input {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+.login_input input:focus {
+    outline: none;
+    border-color: #007bff; /* 포커스 시 파란색 테두리 */
+}
+
+/* 버튼 디자인 */
+.submit_button input {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    background-color: #576e86;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit_button input:hover {
+    background-color: #0056b3;
+}
