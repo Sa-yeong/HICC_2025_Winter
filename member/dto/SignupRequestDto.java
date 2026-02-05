@@ -1,6 +1,7 @@
 package com.meetple.domain.member.dto;
 
 import com.meetple.domain.member.entity.Gender;
+import com.meetple.domain.member.entity.Genre;
 import com.meetple.domain.member.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -8,6 +9,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Getter
 @Builder
@@ -19,6 +21,7 @@ public class SignupRequestDto {
     private LocalDate birthDate;
     private Gender gender;
     private String nickname;
+    private List<Genre> preferences;
 
     public User toEntity() {
         return User.builder().loginId(this.loginId)

@@ -18,8 +18,8 @@ public class Preference {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "User_id")
     @OnDelete(action = OnDeleteAction.CASCADE)
-    @JoinColumn(name = "user_id")
     private User user;
 
     @Column(name = "preference", nullable = false)

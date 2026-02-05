@@ -1,5 +1,6 @@
 package com.meetple.domain.member.dto;
 
+import com.meetple.domain.member.entity.User;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
