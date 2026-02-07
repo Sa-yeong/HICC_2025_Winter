@@ -1,7 +1,6 @@
 package com.meetple.domain.member.controller;
 
 import com.meetple.domain.member.dto.*;
-import com.meetple.domain.member.entity.User;
 import com.meetple.domain.member.service.MemberService;
 import com.meetple.global.security.JwtProvider;
 import lombok.RequiredArgsConstructor;

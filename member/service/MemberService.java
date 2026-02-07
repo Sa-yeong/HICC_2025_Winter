@@ -33,6 +33,7 @@ public class MemberService {
     }
 
     // 3. 회원 등록
+    @Transactional
     public SignupResponseDto signup(SignupRequestDto signupRequest) {
         if (memberRepository.existsByLoginId(signupRequest.getLoginId())){
             throw new IllegalArgumentException("이미 사용 중인 아이디입니다.");

@@ -1,5 +1,6 @@
 package com.meetple.domain.member.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.meetple.domain.member.entity.Gender;
 import com.meetple.domain.member.entity.Genre;
 import com.meetple.domain.member.entity.User;
@@ -18,6 +19,7 @@ import java.util.List;
 public class SignupRequestDto {
     private String loginId;
     private String password;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate birthDate;
     private Gender gender;
     private String nickname;
