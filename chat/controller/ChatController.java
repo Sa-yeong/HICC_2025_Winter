@@ -1,14 +1,13 @@
 package com.meetple.domain.chat.controller;
 
-import com.meetple.domain.chat.dto.ChatCreateRequestDto;
-import com.meetple.domain.chat.dto.MessageRequestDto;
-import com.meetple.domain.chat.dto.MessageSendResponseDto;
-import com.meetple.domain.chat.dto.MyChatRoomResponseDto;
+import com.meetple.domain.chat.dto.*;
+import com.meetple.domain.chat.sender.MessageSender;
 import com.meetple.domain.chat.service.ChatService;
 import com.meetple.global.security.JwtProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.context.request.async.DeferredResult;
 
 import java.util.List;
 
@@ -17,6 +16,7 @@ import java.util.List;
 public class ChatController {
     private final ChatService chatService;
     private final JwtProvider jwtProvider;
+    private final MessageSender messageSender;
 
     // 전체적인 채팅방 흐름
     @PostMapping(value = "/chats")
@@ -58,7 +58,7 @@ public class ChatController {
 
         chatService.closeChatRoom(chatId, jwtProvider.getLoginId(token));
 
-        return ResponseEntity.ok("채팅방을 나갔습니다.");
+        return ResponseEntity.ok("채팅방을 닫았습니다.");
     }
 
     // 모든 내 채팅방 조회하기
@@ -72,10 +72,16 @@ public class ChatController {
 
     // 채팅방 재입장
     @GetMapping(value = "/chats/{chat_id}")
-    public List<MessageSendResponseDto> openChatRoom(@PathVariable("chat_id") Long chatId, @RequestHeader("Authorization") String authHeader) {
+    public ChatRoomDetailDto openChatRoom(@PathVariable("chat_id") Long chatId, @RequestHeader("Authorization") String authHeader) {
         String token = authHeader.replace("Bearer ", "");
         jwtProvider.validateJwt(token);
 
-        return chatService.openChatRoom(chatId);
+        return chatService.openChatRoom(chatId, jwtProvider.getLoginId(token));
+    }
+
+    // longPolling 요청
+    @GetMapping(value = "/chats/{chat_id}/polling")
+    public DeferredResult<MessageSendResponseDto> pollingMessage(@PathVariable("chat_id") Long chatId) {
+        return messageSender.getRequest(chatId);
     }
 }

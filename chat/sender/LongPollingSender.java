@@ -31,7 +31,7 @@ public class LongPollingSender implements MessageSender {
     }
 
     @Override
-    public void getRequest(Long chatId) { // 클라이언트를 waitingClients에 등록
+    public DeferredResult<MessageSendResponseDto> getRequest(Long chatId) { // 클라이언트를 waitingClients에 등록
         DeferredResult<MessageSendResponseDto> deferredResult = new DeferredResult<>(30000L);
 
         // waitingClients에 등록
@@ -41,7 +41,12 @@ public class LongPollingSender implements MessageSender {
         // 메세지 응답 성공
         deferredResult.onCompletion(() -> removeClient(chatId, deferredResult));
         // 타임아웃시
-        deferredResult.onTimeout(() -> removeClient(chatId, deferredResult));
+        deferredResult.onTimeout(() -> {
+            deferredResult.setErrorResult("TimeOut");
+            removeClient(chatId, deferredResult);
+        });
+
+        return deferredResult;
     }
 
     @Override

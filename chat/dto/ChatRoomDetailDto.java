@@ -14,7 +14,9 @@ import java.util.List;
 @AllArgsConstructor
 public class ChatRoomDetailDto {
     private Long chatId;
+    private Long targetId;
+    private String targetNickname;
     private Long postId;
-    private Long myId;
+    private String postTitle;
     private List<MessageSendResponseDto> messages;
 }

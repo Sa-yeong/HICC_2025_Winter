@@ -1,6 +1,7 @@
 package com.meetple.domain.chat.service;
 
 import com.meetple.domain.chat.dto.ChatCreateRequestDto;
+import com.meetple.domain.chat.dto.ChatRoomDetailDto;
 import com.meetple.domain.chat.dto.MessageSendResponseDto;
 import com.meetple.domain.chat.dto.MyChatRoomResponseDto;
 import com.meetple.domain.chat.entity.Chat;
@@ -11,13 +12,13 @@ import com.meetple.domain.chat.repository.MessageRepository;
 import com.meetple.domain.chat.repository.ParticipationRepository;
 import com.meetple.domain.chat.sender.MessageSender;
 import com.meetple.domain.member.entity.User;
-import com.meetple.domain.member.repository.MemberRepository;
 import com.meetple.domain.member.service.MemberService;
 import com.meetple.domain.post.entity.Post;
 import com.meetple.domain.post.repository.PostRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.context.request.async.DeferredResult;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -108,7 +109,7 @@ public class ChatService {
             List<Participation> participationList = participationRepository.findAllByChatId(chat.getId());
 
             for (Participation p : participationList) {
-                if (!p.getUser().getLoginId().equals(loginId)) {
+                if (!p.getUser().getId().equals(user.getId())) {
                     target = p.getUser();
                     break;
                 }
@@ -136,9 +137,22 @@ public class ChatService {
     }
 
     // 5. 채팅방 재입장
-    public List<MessageSendResponseDto> openChatRoom(Long chatId) {
-        List<Message> messages = messageRepository.getAllMessageByChatId(chatId);
+    public ChatRoomDetailDto openChatRoom(Long chatId, String loginId) {
+        // 채팅방 참여자를 찾아 target 찾기
+        List<Participation> participations = participationRepository.findAllByChatId(chatId);
+        User target = null;
+        for (Participation p : participations) {
+            if (!p.getUser().getLoginId().equals(loginId)) {
+                target = p.getUser();
+                break;
+            }
+        }
 
+        // chat 객체 찾기
+        Chat chat = chatRepository.findById(chatId)
+                .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 채팅방입니다."));
+
+        List<Message> messages = messageRepository.getAllMessageByChatId(chatId);
         List<MessageSendResponseDto> responseDtoList = new ArrayList<>();
         Set<Long> participationIds = participationRepository.findAllByChatId(chatId)
                 .stream()
@@ -168,7 +182,11 @@ public class ChatService {
                     .sendTime(message.getCreateTime()).build());
         }
 
-        return responseDtoList;
+        return ChatRoomDetailDto.builder().chatId(chatId)
+                .targetId(target != null ? target.getId() : null)
+                .targetNickname(target != null ? target.getNickname() : "존재하지 않는 사용자")
+                .postId(chat.getPost().getId()).postTitle(chat.getPost().getTitle())
+                .messages(responseDtoList).build();
     }
 
     // 6. 채팅방 전송 버튼 흐름 관리

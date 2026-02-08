@@ -8,9 +8,10 @@ public interface MessageSender {
     void sendMessage(MessageSendResponseDto messageDto);
 
     //클라이언트 요청이 들어왔을 경우 & 메세지가 없는 경우
-    void getRequest(Long chatId);
+    DeferredResult<MessageSendResponseDto> getRequest(Long chatId);
 
     //클라이언트 삭제
     void removeClient(Long chatId, DeferredResult<MessageSendResponseDto> deferredResult);
+
 
 }
