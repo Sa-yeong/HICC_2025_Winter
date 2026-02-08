@@ -1,6 +1,6 @@
 # 구축한 DB
 ## 결과 사진
-<img width="1279" height="1200" alt="image" src="https://github.com/user-attachments/assets/0aef69a3-fea2-4ae4-8b09-d768304cb5cd" />
+<img width="1287" height="1075" alt="image" src="https://github.com/user-attachments/assets/ac135625-fa7f-430a-8d43-0da821cf676c" />
 
 ## 1. Users 테이블
 ```sql
@@ -29,6 +29,7 @@ Create Table posts (
 	performance_date DateTime Not NULL,
 	performance_location Varchar(100) Not Null,
 	create_time DateTime Default CURRENT_TIMESTAMP(),
+	max_people TinyInt,
 	Primary Key (id),
 	Foreign Key (writer_id) references users(id) On Delete CASCADE
 );
@@ -76,6 +77,7 @@ Create Table participate (
 	id BigInt NOT NULL Auto_Increment,
 	chat_id BigInt NOT NULL,
 	member_id BigInt NOT NULL,
+	last_read_time dateTime,
 	Primary Key(id),
 	Foreign Key (chat_id) references chats(id) ON DELETE CASCADE,
 	Foreign Key (member_id) references users(id) ON DELETE CASCADE,
