@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>MeetPle - Main Board</title>
+    <link rel="stylesheet" href="../static/css/whole_post.css">
+    <script src="../static/js/whole_post.js"></script>
+</head>
+<body>
+    <div class="wholepage">
+        
+        <header class="banner_area">
+            <h1>MeetPle Community</h1>
+            <p>관심 있는 장르의 모임을 찾아보세요</p>
+        </header>
+
+        <div class="content_wrapper">
+            
+            <aside class="sidebar">
+                <h4 class="sidebar_title">GENRE</h4>
+                <ul class="genre_list">
+                    <li class="genre_item active" onclick="loadPosts('all')">전체보기</li>
+                    <li class="genre_item" onclick="loadPosts('ROCK')">ROCK</li>
+                    <li class="genre_item" onclick="loadPosts('HIP_HOP')">HIP_HOP</li>
+                    <li class="genre_item" onclick="loadPosts('ROMANCE')">ROMANCE</li>
+                    <li class="genre_item" onclick="loadPosts('THRILLER')">THRILLER</li>
+                    <li class="genre_item" onclick="loadPosts('COMEDY')">COMEDY</li>
+                    <li class="genre_item" onclick="loadPosts('SCI_FI')">SCI_FI</li>
+                    <li class="genre_item" onclick="loadPosts('ROMANCE')">ROM_COM</li>
+                    <li class="genre_item" onclick="loadPosts('HORROR')">HISTORY</li>
+                    <li class="genre_item" onclick="loadPosts('ROMANCE')">MYSTERY</li>
+                </ul>
+            </aside>
+
+            <main class="post_area">
+                <div class="post_header">
+                    <h2 id="current_genre_title">전체 게시물</h2>
+                    <button class="write_btn" onclick="location.href='post.html'">글쓰기</button>
+                </div>
+
+                <div id="post_grid" class="post_grid">
+                    <div class="post_placeholder">게시물을 불러오는 중...</div>
+                </div>
+
+                <div class="pagination" id="paging_btns">
+                    <button class="page_btn">이전</button>
+                    <span id="page_info">1 / 1</span>
+                    <button class="page_btn">다음</button>
+                </div>
+            </main>
+        </div>
+
+        <nav class="bottom_nav">
+            <ul>
+                <li><a href="mainpage.html">HOME</a></li>
+                <li><a href="chating.html">CHAT</a></li>
+                <li><a href="post.html">POST</a></li>
+                <li><a href="mypage.html">MY</a></li>
+            </ul>
+        </nav>
+    </div>
+</body>
+</html>

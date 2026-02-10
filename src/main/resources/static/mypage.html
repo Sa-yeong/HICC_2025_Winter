@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Page</title>
+    <link rel="stylesheet" href="../static/css/mypage.css">
+    <script src="../static/js/mypage.js"></script>
+</head>
+<body>
+    <div class="wholepage">
+        <header class="header_box">
+            <img src="../static/img/mainpage_my.png" id="my_img" onclick="toggleMenu(event)"> 
+            <div class="header_text">
+                <h3 id="welcome_text">Welcome back, user!</h3>
+                <p id="inline_p">Explore and connect with your community</p>
+            </div>
+            <div id="header_menu" class="menu_dropdown">
+                <button onclick="editProfile()">개인정보 수정</button>
+                <button onclick="logout()">로그아웃</button>
+                <button onclick="deleteAccount()" class="btn_delete">회원 탈퇴</button>
+            </div>
+        </header>
+
+        <div class="mypost">
+            <div class="section_header">
+                <h4>Mypost</h4>
+                <a href="all_items.html?type=post" class="view_all">전체보기</a>
+            </div>
+            <ul id="post_list_summary" class="summary_list"></ul>
+        </div>
+
+        <div class="myscrap">
+            <div class="section_header">
+                <h4>Myscrap</h4>
+                <a href="all_items.html?type=scrap" class="view_all">전체보기</a>
+            </div>
+            <ul id="scrap_list_summary" class="summary_list"></ul>
+        </div>
+
+        <nav class="bottom_nav">
+            <ul>
+                <li><a href="../static/mainpage.html">home</a></li>
+                <li><a href="../static/chating.html">chat</a></li>
+                <li><a href="../static/whole_post.html">post</a></li>
+                <li><a href="../static/mypage.html">mypage</a></li>
+            </ul>
+        </nav>
+    </div>
+</body>
+</html>

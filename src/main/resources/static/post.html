@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>MeetPle - 글쓰기</title>
+    <link rel="stylesheet" href="../static/css/post.css">
+    <script src="../static/js/post.js"></script>
+</head>
+<body>
+    <div class="wholepage" style="min-height: 100vh;">
+        <header class="post_header" style="background-color: #576e86; height: 100px; color: white; display: flex; align-items: center; border-bottom: 5px solid black;">
+            <h2 style="margin-left: 20px;">Create New Post</h2>
+        </header>
+
+        <main style="padding: 30px; flex: 1;">
+            <form id="post-form" style="border: 4px solid black; padding: 25px; background: white;">
+                
+                <div class="input_group">
+                    <label>제목</label>
+                    <input type="text" name="Title" placeholder="제목을 입력하세요" required style="width: 100%; padding: 10px; border: 2px solid black; margin-bottom: 15px;">
+                </div>
+
+                <div style="display: flex; gap: 20px; margin-bottom: 15px;">
+                    <div style="flex: 1;">
+                        <label>장르</label>
+                        <select name="Genre" required style="width: 100%; padding: 10px; border: 2px solid black;">
+                            <option value="ROCK">ROCK</option>
+                            <option value="HIP_HOP">HIP_HOP</option>
+                            <option value="ROMANCE">ROMANCE</option>
+                            <option value="THRILLER">THRILLER</option>
+                            <option value="HORROR">HORROR</option>
+                            <option value="COMEDY">COMEDY</option>
+                            <option value="SCI_FI">SCI_FI</option>
+                            <option value="ROM_COM">ROM_COM</option>
+                            <option value="HISTORY">HISTORY</option>
+                            <option value="MYSTERY">MYSTERY</option>
+                        </select>
+                    </div>
+
+                    <div style="flex: 1;">
+                        <label>모집 인원</label>
+                        <input type="number" name="Max_people" min="1" value="1" required style="width: 100%; padding: 10px; border: 2px solid black;">
+                    </div>
+                </div>
+
+                <div class="input_group">
+                    <label>참여 조건</label>
+                    <input type="text" name="Condition" placeholder="예: 20대 남성만, 악기 연주 가능자 등" required style="width: 100%; padding: 10px; border: 2px solid black; margin-bottom: 15px;">
+                </div>
+
+                <div class="input_group">
+                    <label>내용</label>
+                    <textarea name="Content" rows="10" placeholder="상세 내용을 적어주세요" required style="width: 100%; padding: 10px; border: 2px solid black; margin-bottom: 20px; resize: none;"></textarea>
+                </div>
+
+                <button type="submit" style="width: 100%; padding: 15px; background: #28a745; color: white; border: 2px solid black; font-weight: bold; cursor: pointer;">등록하기</button>
+            </form>
+        </main>
+
+        <nav class="bottom_nav" style=" bottom: 0; background: white; border-top: 3px solid black;">
+            <ul style="display: flex; justify-content: space-around; list-style: none; padding: 15px 0; margin: 0;">
+                <li><a href="mainpage.html">HOME</a></li>
+                <li><a href="chating.html">CHAT</a></li>
+                <li><a href="post.html">POST</a></li>
+                <li><a href="mypage.html">MY</a></li>
+            </ul>
+        </nav>
+    </div>
+</body>
+</html>

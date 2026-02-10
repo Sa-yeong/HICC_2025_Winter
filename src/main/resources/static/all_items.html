@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>전체 목록 보기</title>
+    <link rel="stylesheet" href="../static/css/all_utnes.css">
+    <script src="../static/js/all_items.js"></script>
+</head>
+<body>
+    <div class="wholepage">
+        <header class="section_header">
+            <h2 id="page_title">목록</h2>
+            <a href="mypage.html">돌아가기</a>
+        </header>
+
+        <ul id="full_list" class="summary_list"></ul>
+
+        <div id="pagination" class="pagination_box">
+            <button onclick="changePage(-1)">이전</button>
+            <span id="page_num">1</span>
+            <button onclick="changePage(1)">다음</button>
+        </div>
+    </div>
+</body>
+</html>
