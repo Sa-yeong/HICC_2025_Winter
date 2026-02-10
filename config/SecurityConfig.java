@@ -62,7 +62,7 @@ public class SecurityConfig {
         config.setAllowCredentials(true);
         config.setAllowedOrigins(List.of("http://localhost:8080", "http://localhost:5500"));
         config.setAllowedMethods(List.of("GET", "POST", "DELETE", "PUT", "PATCH"));
-        config.setAllowedHeaders(List.of("Authorization"));
+        config.setAllowedHeaders(List.of("*"));
         config.setExposedHeaders(List.of("*"));
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
@@ -70,3 +70,4 @@ public class SecurityConfig {
         return source;
     }
 }
+
