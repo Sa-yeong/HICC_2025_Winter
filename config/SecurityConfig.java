@@ -62,7 +62,7 @@ public class SecurityConfig {
         CorsConfiguration config = new CorsConfiguration();
 
         config.setAllowCredentials(true);
-        config.setAllowedOrigins(List.of("http://localhost:8080", "http://localhost:5500"));
+        config.setAllowedOrigins(List.of("http://localhost:8080", "http:/localhost:5500","http://127.0.0.1:5500", "http://localhost:63342"));
         config.setAllowedMethods(List.of("GET", "POST", "DELETE", "PUT", "PATCH", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
         config.setExposedHeaders(List.of("*"));
@@ -72,3 +72,4 @@ public class SecurityConfig {
         return source;
     }
 }
+x
