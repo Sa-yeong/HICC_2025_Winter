@@ -1,0 +1,108 @@
+.wholepage {
+    width: 35%;
+    margin: 0 auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.header_box {
+    padding: 15px 20px;
+    border-bottom: 2px solid black;
+    background-color: #576e86;
+    color: white;
+}
+
+.header_box h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.mypost {
+    padding: 20px;
+    background-color: white;
+    border: 1px solid black;
+    margin: 30px auto;
+    width: 80%;
+}
+
+.login_input {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.login_input label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.login_input input[type="text"],
+.login_input input[type="password"] {
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.genre_grid {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 4px;
+}
+
+.genre_grid ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.genre_grid li {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.genre_grid label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin: 0;
+}
+
+.submit_button {
+    padding: 12px 20px;
+    background-color: #576e86;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.submit_button:hover {
+    background-color: #3f4f5f;
+}
+
+#return {
+    padding: 12px 20px;
+    background-color: #ddd;
+    color: #333;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+#return:hover {
+    background-color: #bbb;
+}

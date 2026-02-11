@@ -1,0 +1,110 @@
+.wholepage {
+    width: 35%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.banner_area {
+    background: #2c3e50;
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.content_wrapper {
+    display: flex;
+    min-height: 60vh;
+}
+
+.sidebar {
+    width: 30%;
+    border-right: 1px solid #ddd;
+    padding: 20px;
+}
+
+.genre_list {
+    list-style: none;
+    padding: 0;
+}
+
+.genre_item {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.genre_item.active {
+    font-weight: bold;
+    color: #007bff;
+}
+
+.post_area {
+    flex: 1;
+    padding: 20px;
+}
+
+.post_grid {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.post_item {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    background: white;
+    padding: 15px;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    margin-top: 30px;
+}
+
+.page_btn {
+    padding: 8px 15px;
+    border: 1px solid #ddd;
+    background-color: white;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.page_btn:hover {
+    background-color: #f0f0f0;
+}
+
+#page_info {
+    font-weight: bold;
+    min-width: 50px;
+    text-align: center;
+}
+
+.bottom_nav {
+    background: white;
+    border-top: 2px solid black;
+}
+
+.bottom_nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    justify-content: space-around;
+}
+
+.bottom_nav li {
+    padding: 15px 0;
+}
+
+.bottom_nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}

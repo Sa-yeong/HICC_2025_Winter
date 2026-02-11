@@ -1,0 +1,24 @@
+.wholepage {
+    width: 35%;
+    margin: 0 auto;
+    background: white;
+}
+
+.input_group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.bottom_nav {
+    position: fixed;
+    bottom: 0;
+    width: 35%;
+}
+
+.bottom_nav ul {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    padding: 15px 0;
+}

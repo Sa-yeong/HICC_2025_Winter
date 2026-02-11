@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>프로필 수정</title>
+    <link rel="stylesheet" href="../static/css/profile_edit.css">
+    <script src="../static/js/profile_edit.js"></script>
+</head>
+<body>
+    <div class="wholepage">
+        <header class="header_box">
+            <h3>Edit Profile</h3>
+
+        </header>
+
+        <form id="edit-form" class="mypost" style="height: auto; min-height: 60vh;">
+            <div class="login_input">
+                <label>새 비밀번호</label>
+                <input type="password" name="password" width="80%" placeholder="미입력시 원본값 유지"><br>
+                
+                <label>닉네임</label>
+                <input type="text" name="nickname" id="edit_nickname" width="80%" placeholder="미입력시 원본값 유지"><br>
+                
+                <label>선호 장르(미입력시 원본값 유지)</label>
+                <div class="genre_grid">
+                    <ul class="genre_grid">
+                        <li>
+                            <label><input type="checkbox" name="preferences" value="ROMANCE">ROMANCE</label>
+                            <label><input type="checkbox" name="preferences" value="THRILLER">THRILLER</label>
+                            <label><input type="checkbox" name="preferences" value="HORROR">HORROR</label>
+                            <label><input type="checkbox" name="preferences" value="COMEDY">COMEDY</label>
+                        </li>
+                        <li>
+                            <label><input type="checkbox" name="preferences" value="HISTORY">HISTORY</label>
+                            <label><input type="checkbox" name="preferences" value="ROM_COM">ROM_COM</label>
+                            <label><input type="checkbox" name="preferences" value="MYSTERY">MYSTERY</label>
+                            <label><input type="checkbox" name="preferences" value="ROCK">ROCK</label>
+                        </li>
+                        <li>
+                            <label><input type="checkbox" name="preferences" value="SCI_FI">SCI_FI</label>
+                            <label><input type="checkbox" name="preferences" value="HIP_HOP">HIP_HOP</label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <pre><button type="submit" class="submit_button" style="margin-top: 20px;">정보 수정 완료</button>  <a href="mypage.html" id="return">돌아가기</a></pre>
+        </form>
+    </div>
+    <script src="../static/js/profile_edit.js"></script>
+</body>
+</html>
